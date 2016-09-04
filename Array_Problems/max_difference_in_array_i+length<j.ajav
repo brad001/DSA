@@ -1,6 +1,6 @@
 //algo 1: O(n) 
 /*
-  we maintain the  constant difference of length l betweern i and j
+  we find all (aj-min) on lhs with diff of length from aj
 */
 /* package whatever; // don't place package name! */
 
