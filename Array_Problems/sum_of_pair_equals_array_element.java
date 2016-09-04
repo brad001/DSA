@@ -1,3 +1,5 @@
+//algo : O(nlog)+O(n2)=O(n2)
+
 /* package whatever; // don't place package name! */
 
 import java.util.*;
