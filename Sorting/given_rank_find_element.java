@@ -1,5 +1,5 @@
                                                                                            /* package whatever; // don't place package name! */
-
+//algo 1: O(nlogn)
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -24,3 +24,7 @@ class Ideone
 	}
 	
 }
+
+
+//-----------------------------------------------------------------------------------------------------------//
+//Algo 2 : 
