@@ -38,7 +38,7 @@ class Ideone
 		}
 		
 	}
-	void build_heap(int []arr,int n)
+	void build_max_heap(int []arr,int n)
 	{
 		
 		for(int i=n/2-1;i>=0;i--)
@@ -47,7 +47,7 @@ class Ideone
 	}
 	void heap_sort(int []arr,int n)
 	{
-		build_heap(arr,n);
+		build_max_heap(arr,n);
 		
 		System.out.println("after building heap");
 		for(int elem:arr)
