@@ -22,7 +22,7 @@ class Ideone
 	  {
 	  	
 	  	Arrays.sort(arr,start_index,end_index+1);
-	  	System.out.println("median is : "+arr[(start_index+end_index)/2]);
+	  	//System.out.println("median is : "+arr[(start_index+end_index)/2]);
 	  	int t1=arr[(start_index+end_index)/2];
 	  	arr[(start_index+end_index)/2]=arr[index_median];
 	  	arr[index_median]=t1;
@@ -42,7 +42,7 @@ class Ideone
 	   {
 	    if(rem_elem%2==1)//odd
 	    {
-	   	System.out.println("median is : "+arr[low_index+(rem_elem/2)]);
+	   	//System.out.println("median is : "+arr[low_index+(rem_elem/2)]);
 	   	int t1=arr[low_index+(rem_elem/2)];
 	   	arr[low_index+(rem_elem/2)]=arr[index_median];
 	   	arr[index_median]=t1;
@@ -50,7 +50,7 @@ class Ideone
 	    }
 	    else//even
 	    {
-	   	System.out.println("median is : "+arr[low_index+(rem_elem/2-1)]);
+	   	//System.out.println("median is : "+arr[low_index+(rem_elem/2-1)]);
 	   	int t1=arr[low_index+(rem_elem/2-1)];
 	   	arr[low_index+(rem_elem/2-1)]=arr[index_median];
 	   	arr[index_median]=t1;
@@ -82,13 +82,13 @@ class Ideone
 	  //  arr[low]=ret;
 	   // arr[]
 	    int p_index=median_of_median(arr,low,high);
-	    System.out.println("index is "+p_index+"pivot is "+arr[p_index]);
+	    //System.out.println("index is "+p_index+"pivot is "+arr[p_index]);
 	    
-	    System.out.println("before partiotion");
+	   /* System.out.println("before partiotion");
 	    			for(int elem:arr)
 			  System.out.print(elem+" ");
 			  System.out.println();
-			  
+		*/	  
 	    
 		int pivot=arr[p_index];
 		int t1=pivot;
@@ -127,29 +127,29 @@ class Ideone
 		
 		return j;
 	}
-	int q_sort( int[]arr,int low,int high,int rank)
+	int find_element_given_rank( int[]arr,int low,int high,int rank)
 	{
-		System.out.println("low= "+low+ " high="+high+" desired rank= "+rank);
+		//System.out.println("low= "+low+ " high="+high+" desired rank= "+rank);
 		if(low<high)
 		{
 			int p_index=partition(arr,low,high);
-			System.out.println("final place of pivot "+p_index);
-			for(int elem:arr)
-			  System.out.print(elem+" ");
+			//System.out.println("final place of pivot "+p_index);
+			//for(int elem:arr)
+			 // System.out.print(elem+" ");
 			  
-			  System.out.println("current rank is: "+(high-p_index+1));
+			  //System.out.println("current rank is: "+(high-p_index+1));
 			if(high-p_index+1==rank)
 			   return arr[p_index];
 			else if(high-p_index+1 <rank)
 			{
-				System.out.println("move left");
-			   return q_sort(arr,low,p_index-1,rank-(high-p_index+1));
+				//System.out.println("move left");
+			   return find_element_given_rank(arr,low,p_index-1,rank-(high-p_index+1));
 			}
 			else
 			{
-				System.out.println("move right ");
+			//	System.out.println("move right ");
 			
-			   return q_sort(arr,p_index+1,high,rank);
+			   return find_element_given_rank(arr,p_index+1,high,rank);
 			}
 			
 			
@@ -158,26 +158,104 @@ class Ideone
 		 return arr[low];
 		
 	}
+	void find_k_smallest(int[]arr,int k)
+	{
+		int n=arr.length;
+		int rank=k;
+		
+		if(n>=2*k)
+		{
+		int[]new_arr=new int[2*k];
+		int arr_elem_index=0;
+		
+		for(int i=0;i<2*k;i++)
+		new_arr[i]=arr[arr_elem_index++];
+		//it will place the element of given rank at its correct location
+		
+		System.out.println("after initial add of 2k");
+		 for(int elem:new_arr )
+		  System.out.print(elem+" ");
+		 System.out.println();
+		 
+		int temp=find_element_given_rank(new_arr,0,2*k-1,rank);
+		System.out.println("the array has k smallest element in first k position");
+		
+		 for(int elem:new_arr )
+		  System.out.print(elem+" ");
+		 System.out.println();
+		
+		int k_group=(n-2*k)/k;
+		int rem_elem=(n-2*k)%k;
+		
+		for(int i=0;i<k_group;i++)
+		{
+
+		
+		//now keep on adding rest elements to the end k pos and repeat the same process again 
+		 for(int j=k;j<2*k;j++)
+		   new_arr[j]=arr[arr_elem_index++];
+		   
+		   System.out.println("after adding group of k");
+		 for(int elem:new_arr )
+		  System.out.print(elem+" ");
+		 System.out.println();
+		 
+		 temp=find_element_given_rank(new_arr,0,2*k-1,rank);
+		 
+		 System.out.println("the array has k smallest element in first k position");
+		
+		 for(int elem:new_arr )
+		  System.out.print(elem+" ");
+		 System.out.println();
+		 
+		}
+		//replace to the right of k with rem elem
+		for(int j=k;j<(k+rem_elem);j++)
+		  new_arr[j]=arr[arr_elem_index++];
+		  
+		temp=find_element_given_rank(new_arr,0,k+rem_elem,rank);  
+		 System.out.println("after adding rem");
+		 for(int j=0;j<(k+rem_elem);j++ )
+		  System.out.print(new_arr[j]+" ");
+		 System.out.println();
+		 
+		 System.out.println("the first k smallest element");
+		 for(int j=0;j<k;j++)
+		    System.out.print(new_arr[j]+" ");
+		
+		}
+		else
+		{
+			int temp=find_element_given_rank(arr,0,n-1,rank);
+			System.out.println("the first k smallest element");
+		 for(int j=0;j<k;j++)
+		    System.out.print(arr[j]+" ");
+			
+		}
+		
+		
+		
+	}
 	public static void main (String[] args) throws java.lang.Exception
 	{
 	
 	   Scanner sc=new Scanner(System.in);
 	   int n=sc.nextInt();
 	   int []arr=new int[n];
-	   int rank=sc.nextInt();
+	   //int rank=sc.nextInt();
+	   int k=sc.nextInt();
 	   for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
 	   Ideone obj=new Ideone();
 	   
-	   System.out.println("before sorting");
+	   System.out.println("given array");
 	   for(int elem:arr)
 	      System.out.print(elem+" ");
+	      System.out.println();
 	   
-	   int returned_elem=obj.q_sort(arr,0,n-1,rank);
-	   System.out.println("the element with given rank is : "+returned_elem);
+	   obj.find_k_smallest(arr,k);
+	  
 	   
-	   System.out.println("after sorting");
-	   for(int elem:arr)
-	      System.out.print(elem+" ");
+	   
 	}
 }
