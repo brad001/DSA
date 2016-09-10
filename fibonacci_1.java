@@ -117,7 +117,10 @@ public class Solution
       
       int []num_arr=new int[n];
       for(int i=0;i<n;i++)
-          num_arr[i]=sc.nextInt();
+      {
+           //genearate digits 0-9
+          num_arr[i]=(int)(Math.random()*10);
+      }
       
      
 
