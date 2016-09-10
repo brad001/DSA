@@ -127,7 +127,7 @@ public class Solution
      Solution obj=new Solution();
       
      int result=obj.fib(num_arr,mod_val);
-     System.out.println("the fib(n)mod mod_val is  : "+result);
+     System.out.println("the fib(n)mod "+mod_val+" is :"+result);
      
    }
 }
