@@ -20,7 +20,7 @@ class Ideone
 			while(i <=high && arr[i]<=pivot)
 			   i++;
 			   
-			while(j>=0 && arr[j]>pivot)
+			while(j>=low && arr[j]>pivot)
 			   j--;
 		  if(i<j)	   
 		  {
