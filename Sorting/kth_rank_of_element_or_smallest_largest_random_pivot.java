@@ -49,20 +49,25 @@ public class Solution
 		return j;
        
    }
-  int find_kth_smallest(int[]arr,int low,int high,int k)
+  int find_kth_largest_or_rank(int[]arr,int low,int high,int rank)
   {
       if(low<high)
       {
-        int p_index=partition(arr,low,high);    
-        if(p_index==k-1)
+        int p_index=partition(arr,low,high); 
+          //it will give the kth largest(curr_rank) element 
+        int curr_rank=high-p_index+1;
+          
+        if(curr_rank==rank)
             return arr[p_index];
-         else if(p_index>k-1) 
-           return find_kth_smallest(arr,low,p_index,k);
-         else
-             return find_kth_smallest(arr,p_index+1,high,k);
+         else if(curr_rank<rank)  //move left
+             //return find_kth_smallest(arr,low_p_index,rank); =>this may result -ve numbers in rank
+           return find_kth_largest_or_rank(arr,low,p_index,rank-curr_rank);
+         else  //move right dont change the rank becuase low and high will change accordingly
+             return find_kth_largest_or_rank(arr,p_index+1,high,rank);
       }
       else
-          return Integer.MIN_VALUE;
+          //return the value where both are equal
+          return arr[low];
       
   }
    
@@ -92,8 +97,12 @@ public class Solution
      
      
        Solution obj=new Solution();
-       System.out.println("the kth smallest element is  "+obj.find_kth_smallest(arr,0,n-1,k));
-       System.out.println("the kth largest element is  "+obj.find_kth_smallest(arr,0,n-1,n-k+1));
+     //rank is k=> largest is k
+     //smallest is n-k+1;
+       System.out.println("the kth rank element is "+obj.find_kth_largest_or_rank(arr,0,n-1,k));
+       
+       System.out.println("the kth smallest element is  "+obj.find_kth_largest_or_rank(arr,0,n-1,n-k+1));
+     System.out.println("the kth largest element is  "+obj.find_kth_largest_or_rank(arr,0,n-1,k));
      
  }
 }
