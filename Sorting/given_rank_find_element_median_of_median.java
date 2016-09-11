@@ -63,6 +63,8 @@ class Ideone
 	}
 	else
 	{
+		//it will not matter much but conceptually it must sort the size if less than 5 and return the median
+		Arrays.sort(arr,low,high+1);
 		int size=high-low+1;
 		if(size%2==0)//even
 		  //return arr[low+(size/2)-1];
