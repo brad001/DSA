@@ -61,7 +61,7 @@ public class Solution
             return arr[p_index];
          else if(curr_rank<rank)  //move left
              //return find_kth_smallest(arr,low_p_index,rank); =>this may result -ve numbers in rank
-           return find_kth_largest_or_rank(arr,low,p_index,rank-curr_rank);
+           return find_kth_largest_or_rank(arr,low,p_index-1,rank-curr_rank);
          else  //move right dont change the rank becuase low and high will change accordingly
              return find_kth_largest_or_rank(arr,p_index+1,high,rank);
       }
