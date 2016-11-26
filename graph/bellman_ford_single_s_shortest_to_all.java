@@ -26,21 +26,55 @@ class Graph
   void print_dist(int[]dist)
   {
       
-      for(int i=0;i<dist.length;i++)
+       for(int i=0;i<dist.length;i++)    
+           if(dist[i]==INF)
+           System.out.print("INF ");
+           else
           System.out.print(dist[i]+" ");
+       
       System.out.println();
   }
-  void print_path(int[]parent)
+  void print_node(int[]parent,int curr)
   {
-      System.out.printf("%-9s","parent:");
+      if(curr!=-1 && curr!=-2)
+      print_node(parent,parent[curr]);
+      else
+      return;
+      
+     System.out.print(curr+"->"); 
+  }
+  void print_path(int[]parent,int[]dist,int s)
+  {
+
+    /* System.out.printf("%-9s","parent:");
      for(int i=0;i<V;i++) 
        System.out.print(parent[i]+" ");
       
       System.out.printf("\n%-9s","dest:");
       for(int i=0;i<V;i++) 
        System.out.print(i+" ");
-      
+      */
      System.out.println(); 
+      
+      //path from s to all other vertices
+      
+      for(int i=0;i<parent.length;i++)
+      {
+          System.out.println("From "+s+" to "+i);
+          System.out.print("path: ");
+           print_node(parent,i);
+          System.out.print("END");
+          if(dist[i]==INF)
+          System.out.println("  cost=INF");    
+          else
+          System.out.println("  cost="+dist[i]);
+
+      }
+      
+      
+      System.out.println();
+      
+
      
   }
   void bellman_ford(int s)
@@ -50,6 +84,9 @@ class Graph
       
     //to track the path from s to all
      int parent[]=new int[V] ;
+      //useful when a vertex has no parent
+    for(int i=0;i<V;i++)
+        parent[i]=-2;
       
    for(int i=0;i<V;i++)   
        dist[i]=INF;
@@ -95,7 +132,7 @@ class Graph
     //print the distance to all from s
       System.out.println("from source "+s+" the dist to all other");
     print_dist(dist);  
-    print_path(parent);  
+    print_path(parent,dist,s);  
       
   }
     
@@ -121,7 +158,21 @@ public class Solution
        g.edge[i].wt=sc.nextInt(); 
     } 
      
-    g.bellman_ford(0); 
+    g.bellman_ford(1); 
  }
     
 }
+
+/*
+test input:
+5 8
+0 1 -1
+0 2 4
+1 2 3
+1 3 2
+1 4 2
+3 2 5
+3 1 1
+4 3 -3
+
+*/
