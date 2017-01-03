@@ -1,53 +1,172 @@
-/* package whatever; // don't place package name! */
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+package topo;
 
-/* Name of the class has to be "Main" only if the class is public. */
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Stack;
+
+
+
+enum edgeType
+{CROSS,BACK,TREE,FORWARD,NONE}
+
 class Node
 {
- int vertex;
- //int weight;   
+	int dest;
+	int wt;
+	edgeType type;//type of edge (forward , back, cross, tree)
+	Node next;
+	public Node(int dest)
+	{
+		this.dest=dest;
+		this.type=edgeType.NONE;//initialize all to x
+	}
+	public Node(int dest,int wt)
+	{
+		this.dest=dest;
+		this.wt=wt;
+		this.type=edgeType.NONE;
+		
+	}
 }
 class Graph
 {
-  private int V; 
-    public static int time;
-  private LinkedList<Node>adj[];
-  Graph(int v)      
-  {
-      V=v;
-      time=0;
-      adj=new LinkedList[V];
-      for(int i=0;i<V;i++)
-      adj[i]=new LinkedList();
-  }
-  void addEdge(int v,int w)
-  {
-      Node n=new Node();
-      n.vertex=w;
-      
-    adj[v].add(n);
+    private int V;   // No. of vertices
+ 
+    // Array  of lists for Adjacency List Representation
+    private LinkedList<Node> adj[];
     
-    //undirected graph
-     //adj[w].add(v);
-  } 
+    private Stack<Integer> stk;
+    //to store the start and finish time
+    static int tm;
+    //static int ftTime;
+    int st[];
+    int ft[];
+ 
+    // Constructor
+    Graph(int v)
+    {
+    	st=new int[v];
+    	ft=new int[v];
+    	tm=1;
+        V = v;
+        stk=new Stack();
+        adj = new LinkedList[v];
+        for (int i=0; i<v; i++)
+            adj[i] = new LinkedList();
+        
+    }
+ 
+    //Function to add an edge into the graph
+    void addEdge(int u, int v,int wt)
+    {
+    	
+    }
+    //wt=0 for each edge
+    void addEdge(int u, int v)
+    {
+    	Node temp=new Node(v);
+        adj[u].add(temp);  // Add w to v's list.
+    }
+ 
+    void displayGraph()
+    {
+    	System.out.println("graph with only vertices".toUpperCase());
+    	for(int i=0;i<V;i++)
+    	{
+    		System.out.print(i+"->");
+    		Iterator<Node> it=adj[i].listIterator();
+    		while(it.hasNext())
+    		{
+    			System.out.print((Integer)it.next().dest+" ");
+    		}
+    		System.out.println();
+    	}
+    }
+    void displayFullGraph()
+    {
+    	System.out.println("graph with dest, weight, EdgeType ".toUpperCase());
+    	for(int i=0;i<V;i++)
+    	{
+    		System.out.print(i+"->");
+    		Iterator<Node> it=adj[i].listIterator();
+    		while(it.hasNext())
+    		{
+    			Node temp=it.next();
+    			System.out.print(temp.dest+" "+temp.wt+" "+temp.type+" ,");
+    		}
+    		System.out.println();
+    	}
+    }
+    void displayTime()
+    {
+    	System.out.println("the start and finish time are:");
+    	for(int i=0;i<V;i++)
+    	{
+    		System.out.print(st[i]+" ");
+    	}
+    	System.out.println();
+    	for(int i=0;i<V;i++)
+    	{
+    		System.out.print(ft[i]+" ");
+    	}
+    	System.out.println("");
+    }
+    void classifyEdge()
+    {
+    	for(int i=0;i<V;i++)
+    	{
+    		int u=i;
+    		Iterator<Node> it=adj[i].listIterator();
+    		while(it.hasNext())
+    		{
+    			Node temp=it.next();
+    		  int v=temp.dest;
+    		  if(st[u]<st[v] &&ft[u]>ft[v] &&  temp.type!=edgeType.TREE) //true for both forward and tree, and tree is already stored
+    		  {
+    			 temp.type=edgeType.FORWARD;
+    		  }
+    		  else if(st[u]>st[v] &&ft[u]<ft[v])
+    		  {
+    			  temp.type=edgeType.BACK;
+    			  //System.out.println(u+" "+v+" forms a back edge");
+    		  }
+    		  /*else if(st[u]<st[v] &&ft[u]<ft[v])
+    		  {
+    			  System.out.println(u+" "+v+" forms a forward edge");
+    		  }
+    		  */
+    		  else if(st[u]>st[v] && ft[u]>ft[v])
+    		  {
+    			  temp.type=edgeType.CROSS;
+    			  //System.out.println(u+" "+v+" forms a cross edge");
+    		  }
+    		  else
+    		  {
+    			  
+    		  }
+    		  	
+    		}
+    		
+    	}
+    	
+    }
     void topo_sort_rec(int s,boolean[]visited,int[]d,int[]f,Stack st)
     {
         
         visited[s]=true;
-        d[s]=time++;
+        d[s]=tm++;
         
         Iterator<Node>it=adj[s].listIterator();
         while(it.hasNext())
         {
-          int n=it.next().vertex;
-          if(!visited[n])
-              topo_sort_rec(n,visited,d,f,st);
+        	Node temp=it.next();
+          int adjNode=temp.dest;
+          if(!visited[adjNode])
+              topo_sort_rec(adjNode,visited,d,f,st);
         }
         
-        f[s]=time++;
+        f[s]=tm++;
         st.push(new Integer(s));
         
     }
@@ -75,26 +194,42 @@ class Graph
       while(!st.isEmpty())
           System.out.print(st.pop()+" ");
   }
-    	
+ 
+   
 }
-class Solution
+
+public class topologicalSort 
 {
-	
-    
-	public static void main (String[] args) throws java.lang.Exception
+
+	public static void main(String[]args)
 	{
-		Scanner sc=new Scanner(System.in);
+		
+		Graph g=new Graph(7);
         
-        Graph g=new Graph(6);
-        g.addEdge(5,2);
-        g.addEdge(2,3);
-        g.addEdge(3,1);
-        g.addEdge(4,1);
-        g.addEdge(4,0);
-        g.addEdge(5,0);
-                
-       g.topo_sort();
-     
-       
+        g.addEdge(0, 1);
+        g.addEdge(1, 2);
+        g.addEdge(0, 3);
+        g.addEdge(1, 3);
+        g.addEdge(2, 4);
+        //rev
+        //g.addEdge(2, 5);
+        g.addEdge(5, 2);
+        
+        g.addEdge(3, 4);
+        g.addEdge(3, 2);
+        g.addEdge(3, 6);
+        g.addEdge(4, 5);
+        g.addEdge(4, 6);
+        g.addEdge(6, 5);
+        g.addEdge(1, 5);
+        g.addEdge(6, 1);
+        
+        
+        g.displayFullGraph();
+        
+        g.topo_sort();
+        
+        
+		
 	}
 }
