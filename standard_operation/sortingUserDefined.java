@@ -1,12 +1,6 @@
 package sorting;
-
 import java.util.ArrayList;
 import java.util.*;
-
-
-
-
-
 class Student implements Comparable<Student>
 {
 	 private int roll;
@@ -106,13 +100,7 @@ class Student implements Comparable<Student>
 		 }
 	};
 	
-	
-	
 }
-
-
-
-
 public class sortingUserDefined 
 {
 	static void prL()
@@ -128,8 +116,6 @@ public class sortingUserDefined
 		prL("prL(obj)");
 		System.out.println(obj);
 	}
-	
-	
 	public static void main(String[]args)
 	{
 	   
@@ -237,15 +223,9 @@ public class sortingUserDefined
 		  prL("first sort on age and then name");
 		  Collections.sort(aS,Student.sortByAgeName);
 		  prL(aS);
-		  
-		  
 		  prL(aS);
-		  
-		  
-		 // Iterator iter=aS.iterator();
-		  
-		  
-		  
+
+		 // Iterator iter=aS.iterator(); 
 		  ArrayList<Integer> ai=new ArrayList<Integer>();
 		  ai.add(5);
 		  ai.add(45);
@@ -263,8 +243,6 @@ public class sortingUserDefined
 		  prL("after reversing");
 		  Collections.reverse(ai);
 		  prL(ai);
-		  
-		  
 		  
 	}
 }
