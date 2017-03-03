@@ -1,0 +1,97 @@
+package listStack;
+//import listStack.ArrayLinkedList;
+import java.util.*;
+class ListStack<E>
+{
+	ArrayLinkedList<E> list=new ArrayLinkedList<E>();
+	ArrayLinkedList.Node top=list.head;
+	int c=0;//size of stack
+
+	boolean isEmpty()
+	{
+		if(top==null)
+			return true;
+		else 
+			return false;
+	}
+
+	void push(E d)
+	{
+		list.add(0,d);
+		top=list.head;
+		c++;
+	}
+
+	E peek()
+	{
+		if(isEmpty())
+		{
+			throw new RuntimeException("Stack UnderFlow");
+		}
+		E x=list.get(0);
+		return x;
+	}
+
+	E pop()
+	{
+
+		if(isEmpty())
+		{
+			throw new RuntimeException("Stack UnderFlow");
+		}
+		E x=list.get(0);
+		list.remove(0);
+		top=list.head;
+		c--;
+		return x;
+	}
+
+	void clear()
+	{
+		list.head=null;
+		top=list.head;
+	}
+
+	boolean search(E d)
+	{
+		for(int i=0;i<list.size();i++)
+		{
+			if(list.get(i)==d)
+				return true;
+		}
+		return false;
+	}
+
+	public String toString()
+	{
+		if(isEmpty())
+			return "[ ]";
+		StringBuffer out = new StringBuffer("[");
+        for(int i = 0; i < list.size()-1; i++)
+        out.append(list.get(i) + ", ");
+
+        out.append(list.get(list.size()-1) + "]");
+        return out.toString();
+	}
+}
+class TestListStack
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		ListStack<Integer> st=new ListStack<Integer>();
+		for(int i=0;i<10;i++)
+		{
+			st.push(i);
+		}
+	
+		System.out.println(st);
+		for(int i=0;i<5;i++)
+		{
+			st.pop();
+		}
+		System.out.println(st);
+		st.clear();
+		System.out.println(st);
+	}
+}

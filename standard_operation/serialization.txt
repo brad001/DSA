@@ -1,0 +1,42 @@
+import java.io.*;
+import java.io.Serializable;
+class Student implements Serializable
+{
+	static String clgName;
+	int id;
+	int roll=5;
+	String name;
+	transient String add;
+	Student(int id,String name,String add)
+	{
+		clgName="iiitb";
+		this.id=id;
+		this.name=name;
+		this.add=add;
+	}
+}
+class Persist
+{
+	public static void main(String[] args) throws Exception
+	{
+		Student s1=new Student(1,"margi","gandhinagar");
+		Student s2=new Student(2,"loki","gandhinagar");
+		FileOutputStream fout=new FileOutputStream("/home/margi/DS/Serializable.txt");
+		ObjectOutputStream out=new ObjectOutputStream(fout);
+
+		out.writeObject(s1);
+		out.writeObject(s2);
+		out.flush();
+		System.out.println("done!");
+		
+
+		ObjectInputStream in=new ObjectInputStream(new FileInputStream("/home/margi/DS/Serializable.txt"));
+		Student s=(Student)in.readObject();
+		System.out.println("clgName:"+s.clgName);
+		System.out.println("id:"+s.id);
+		System.out.println("name:"+s.name);
+		System.out.println("add:"+s.add);
+		in.close();
+
+	}
+}

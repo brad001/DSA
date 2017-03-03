@@ -1,0 +1,161 @@
+import java.util.*;
+class ArrayLinkedList<E>
+{
+	class Node
+	{
+		E data;
+		Node next;
+
+		Node(E data)
+		{
+			this.data=data;
+			next=null;
+		}
+		Node(){}
+	}
+	Node head=null;
+	Node last=null;
+	int count=0; //total nodes in the list
+	void add(E d) //add at the end of the list
+	{
+		Node n=new Node(d);
+		if(head!=null)
+		{
+			last.next=n;
+			last=n;
+			count++;
+		}
+		else
+		{
+			head=n;
+			last=n;
+			count++;
+		}
+	}
+	void add(int index,E d)// add at given index
+	{
+		if(index>0)
+		{
+			if(index<count)
+			{
+				Node before=head;
+				Node n=new Node(d);
+				for(int i=0;i<index-1;i++)
+				{
+					before=before.next;
+				}
+				n.next=before.next;
+				before.next=n;
+				count++;
+			}
+			else if(index==count)
+			{
+				Node n=new Node(d);
+				last.next=n;
+				last=n;
+				count++;
+			}
+		}
+		else if(index==0)
+		{
+			Node n=new Node(d);
+			n.next=head;
+			head=n;
+			count++;
+		}
+	}
+	E get(int index) //get the data from the given index node 
+	{
+		Node target=head;
+		for(int i=0;i<index;i++)
+		{
+			target=target.next;
+		}
+		return target.data;
+	}
+	void remove(int index)
+	{
+		if(index==0)
+		{
+			head=head.next;
+			count--;
+		}
+		else if(index>0 && index<count-1)
+		{
+			Node before=head;
+			for(int i=0;i<index-1;i++)
+			{
+				before=before.next;
+			}
+			Node current=before.next;
+			before.next=current.next;
+			count--;
+		}
+		else if(index==count-1)
+		{
+			Node before=head;
+			for(int i=0;i<index-1;i++)
+			{
+				before=before.next;
+			}
+			before.next=null;
+			last=before;
+			count--;
+		}
+	}
+	void set(int index,E d)
+	{
+		Node current=head;
+		for(int i=0;i<index;i++)
+		{
+			current=current.next;
+		}
+		current.data=d;
+	}
+
+	int size()
+	{
+		return count;
+	}
+}
+class TestList
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		ArrayLinkedList<String> list=new ArrayLinkedList<String>();
+		System.out.println("enter number of elements you want to add in the list");
+		int n=sc.nextInt();
+		sc.nextLine();
+		System.out.println("enter list data");
+		for(int i=0;i<n;i++)
+		{
+			list.add(sc.nextLine());
+		}
+		/*list.add(2,135);// add in the middle somewhere
+		list.add(0,115);// add at the start
+		list.add(list.size(),155);//add at the end
+		System.out.println(list.get(0)+","+list.get(2)+","+list.get(list.size()-1));
+		list.remove(0);
+		list.remove(2);
+		list.remove(list.size()-1);
+		list.set(2,135);*/
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+		/*System.out.println("enter a String:");
+		String str=sc.nextLine();
+		for(String s:str.split(" "))
+		{
+			int x=Integer.parseInt(s);
+			list.add(x);
+		}
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}*/
+
+
+	}
+}
