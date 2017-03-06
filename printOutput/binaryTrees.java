@@ -490,11 +490,8 @@ class BinaryTree
 			{
 				temp.next=q1.getFirst();
 			}
-		}
-
-		
+		}	
 		printConnectNodesLevelOrder();
-		
 	}
 	public void printConnectNodesLevelOrder()
 	{
@@ -527,8 +524,6 @@ class BinaryTree
 		}
 	}
 	
-
-
 	public void findAncestorsOfNode(int val)
 	{
 
@@ -590,14 +585,11 @@ class BinaryTree
 				 return;
 		    	}
 			}
-
-
 			//last statement
 			prev=curr;
 		}
 
 		//reached here means , we have not found the element
-
 		System.out.println("element does not exists");
 		return;
 
@@ -615,7 +607,6 @@ class BinaryTree
 
 	    //copy the random nodes
 	   // copyRandom(rootOldTree,root,mapOldNew);
-
 	}
 	public Node cloning(Node curr,Map<Node,Node>mapOldNew)
 	{
@@ -700,26 +691,13 @@ public class binaryTrees
 	{
 
 		BinaryTree bt=new BinaryTree();
-		bt.insert(1);
-		bt.insert(2);
-		bt.insert(3);
-		bt.insert(4);
-		bt.insert(5);
-		bt.insert(6);
-		bt.insert(7);
-		bt.insert(8);
-		bt.insert(9);
-		bt.insert(10);
-		bt.insert(11);
-		bt.insert(12);
-		bt.insert(13);
-		bt.insert(14);
-		bt.insert(15);
-		bt.insert(16);
-		bt.insert(17);
+		bt.insert(1);bt.insert(2);bt.insert(3);
+		bt.insert(4);bt.insert(5);bt.insert(6);
+		bt.insert(7);bt.insert(8);bt.insert(9);
+		bt.insert(10);bt.insert(11);bt.insert(12);
+		bt.insert(13);bt.insert(14);bt.insert(15);
+		bt.insert(16);bt.insert(17);
 		//bt.insert(6);
-
-
 		pl("the preOrder is");
 		bt.displayPre();
 		pl();
@@ -812,12 +790,9 @@ public class binaryTrees
 		pl();
 	
 		BinaryTree subtree=new BinaryTree();
-		subtree.insert(2);
-		subtree.insert(4);
-		subtree.insert(5);
-		subtree.insert(8);
-		subtree.insert(9);
-		subtree.insert(10);
+		subtree.insert(2);subtree.insert(4);
+		subtree.insert(5);subtree.insert(8);
+		subtree.insert(9);subtree.insert(10);
 		subtree.insert(11);
 		boolean a=bt.isSubtree(obj.root,subtree.root);
 		if(a)
@@ -836,11 +811,6 @@ public class binaryTrees
 		//once the above object (btClone) is created
 		//and we copy all nodes from old tree to new
 		//we can call every function 
-
-
-		
-
-
 		pl("the preOrder is");
 		btClone.displayPre();
 		pl();
@@ -876,8 +846,6 @@ public class binaryTrees
 		int min1=btClone.min();
 		System.out.println(min1);
 		pl();
-
-
 		pl("the diameter of the tree");
 		int diam1=btClone.diameter();
 	    System.out.println(diam1);
@@ -904,8 +872,6 @@ public class binaryTrees
 		btClone.findAncestorsOfNode(val1);
 		pl();
 
-
-
 		// THE EXISTENCE IS INDEPENDENT=> MODIFY THE DATA FOR EACH NODE 
 		//In newTree
 		btClone.modifyContent();
@@ -915,17 +881,6 @@ public class binaryTrees
 		pl("preorder for new copied tree");		
 		btClone.displayPre();
 		pl();
-		
-		
-
-
-		
-
-
-
-
-
-
 
 	}
 }
