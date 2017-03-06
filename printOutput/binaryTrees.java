@@ -656,6 +656,34 @@ class BinaryTree
 		modifyData(curr.left);
 		modifyData(curr.right);
 	}
+	
+	boolean isSubtree(Node n,Node s)
+	{
+		if(s==null)
+			return true;
+		if(n==null)
+			return false;
+		if(equalization(n,s))
+			return true;
+		else
+			return(isSubtree(n.left,s)||isSubtree(n.right,s));
+	}
+	boolean equalization(Node n,Node s)
+	{
+		if(n!=null && s!=null)
+		{
+			if(n.data==s.data)
+			{
+				return(equalization(n.left,s.left) && equalization(n.right,s.right));
+			}
+			else
+				return false;
+		}
+		else if(n==null && s==null)
+			return true;
+		else
+			return false;
+	}
 }
 
 public class binaryTrees
@@ -782,7 +810,22 @@ public class binaryTrees
 		pl("After connecting the nodes at each level");
 		bt.connectNodesLevelOrder();
 		pl();
-
+	
+		BinaryTree subtree=new BinaryTree();
+		subtree.insert(2);
+		subtree.insert(4);
+		subtree.insert(5);
+		subtree.insert(8);
+		subtree.insert(9);
+		subtree.insert(10);
+		subtree.insert(11);
+		boolean a=bt.isSubtree(obj.root,subtree.root);
+		if(a)
+			System.out.println("given tree is the subtree of a main tree");
+		else
+			System.out.println("not a subtree");	
+		
+		
 
 		pl("--------------CLONING TREE----------------------");
 		pl("\nwe dont create the whole tree , but create a copy of previous tree");
