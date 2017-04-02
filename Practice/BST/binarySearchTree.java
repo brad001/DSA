@@ -2392,22 +2392,6 @@ public class binarySearchTree
 	   pl("---------------------------------");
 	   pl();
 
-	   
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
 	}
 }
 
@@ -2444,4 +2428,408 @@ returned ceil for 11=12
 ceil of a value
 returned ceil for 1=2
 
+*/
+/*
+Note: /home/lokender/workspace1/GeeksForGeeks/binarySearchTree.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+the preOrder is
+the Iterative preOrder
+5 2 3 4 7 6 12 
+the Recursive preOrder
+5 2 3 4 7 6 12 
+
+the postOrder
+the iterative post order
+4 3 2 6 12 7 5 
+the recursive post order
+4 3 2 6 12 7 5 
+
+the inOrder
+the iterative in order
+2 3 4 5 6 7 12 
+the recursive  order
+2 3 4 5 6 7 12 
+
+the levelOrder
+the iterative level order
+5 2 7 3 6 12 4 
+the recursive level order
+5 2 7 3 6 12 4 
+
+the height is
+4
+
+the max element of tree is
+12
+
+the min element of tree is
+2
+
+the diameter of the tree
+6
+
+the maximum width of the tree
+maximum width=3
+
+the maximum width of the tree
+level:1 =Nodes=1
+level:2 =Nodes=2
+level:3 =Nodes=3
+level:4 =Nodes=1
+maximum width=3
+
+the maximum sum out of each level
+we got the maximum sum at level=3
+we got the maximum sum =21
+
+print all the paths from root to leaf
+path:  5 2 3 4
+path:  5 7 6
+path:  5 7 12
+
+print the sum of each path and also the maximum sum along all
+path ends with sum: 14
+path ends with sum: 18
+path ends with sum: 24
+the maximum sum along all paths =24
+
+create a tree = mirror of the given bst
+level order of old tree
+the iterative level order
+5 2 7 3 6 12 4 
+the recursive level order
+5 2 7 3 6 12 4 mirror is created
+the level order for new mirror would look like
+the iterative level order
+5 7 2 12 6 3 4 
+the recursive level order
+5 7 2 12 6 3 4 
+
+nodes at k=2 distance from root
+7 2 
+
+the inOrder-predecessor of the node=5
+pred is=6
+
+
+the inOrder-succcessor of the node=5
+pred is=4
+
+check if the tree is bst or not
+the tree passed is bst=false
+
+
+Find the DEEPEST node in the tree
+the deepest node has val=4
+
+Find the size of the tree
+the no. of nodes in the tree is=7
+
+Find the leaves of the tree
+the tree has 3 leaves
+[12, 6, 4]
+the tree has 2 full nodes
+[5, 7]
+the tree has 2 half nodes
+[2, 3]
+
+-----------------NEW BST--------- 
+the levelOrder of new binary tree
+the iterative level order
+6 2 7 1 9 5 10 
+the recursive level order
+6 2 7 1 9 5 10 
+check if the tree is bst or not
+the tree passed is bst=false
+
+check if the tree is bst or not
+the tree passed is bst=false
+------------------------
+seach the tree for nodes
+false
+false
+
+lowest common ancesotr of the nodes
+elemets doesnt exists
+given a=5 and b=6 is Rec=-2147483648 & Iter=-2147483648
+
+finding kth-smallest elemnt in the tree
+wrong data
+
+------DELETING node from the tree--------
+node with data=4 was not found in the tree
+after deleting node=5 the level order looks like
+the levelOrder
+the iterative level order
+4 7 2 12 6 3 4 
+the recursive level order
+4 7 2 12 6 3 4 
+
+ceil of a value
+returned ceil for 1=12
+
+floor of a value
+returned ceil for 5=4
+
+
+print the reverse inOrder of the tree
+2 3 4 4 6 7 12 
+
+to check if any two pairs has sum=4
+we do not have any pair
+
+------Create Two BST and MERGE the output as sorted-------
+--the level order traversal of 1st bst
+the iterative level order
+5 3 7 
+the recursive level order
+5 3 7 
+the leaves of the 1st tree
+the tree has 2 leaves
+[3, 7]
+the tree has 1 full nodes
+[5]
+the tree has 0 half nodes
+[]
+
+the maximum sum out of each level of 1st bst
+we got the maximum sum at level=2
+we got the maximum sum =10
+
+print all the paths from root to leaf of 1st bst
+path:  5 3
+path:  5 7
+
+print the sum of each path and also the maximum sum along all of 1st bst
+path ends with sum: 8
+path ends with sum: 12
+the maximum sum along all paths =12
+
+-------------------------------
+
+-----------CREATEd TWO NEW BST will merge but see the order--------
+Inorder 1 : 
+the iterative in order
+3 5 7 
+the recursive  order
+3 5 7 
+Inorder 2 : 
+the iterative in order
+1 4 6 9 11 
+the recursive  order
+1 4 6 9 11 
+--------MERGE OF THE TWO BSTs------
+
+1 3 4 5 6 7 9 11 ------------------
+
+-----COMMON NODES OF TWO BST's-----------
+two bsts have nodes as :inorder
+the iterative in order
+0 1 4 5 7 9 10 
+the recursive  order
+0 1 4 5 7 9 10 
+
+the iterative in order
+1 4 5 7 9 10 20 
+the recursive  order
+1 4 5 7 9 10 20 
+
+THE COMMON nodes of BOTH the bsts are 
+1 4 5 7 9 10  
+
+
+-----------CREATE A BST FROM SINGLE LINKED LIST 1St APPROACH--------
+
+the list is
+[1, 4, 5, 6, 7, 9, 10, 12, 14, 16, 21, 22, 26, 28, 30]
+
+once bst is created from list, do all operation
+1. level order
+the iterative level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 
+the recursive level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 
+the height is
+4
+
+the max element of tree is
+30
+
+the min element of tree is
+1
+
+the diameter of the tree
+7
+
+the maximum width of the tree
+maximum width=8
+
+the leaves of the bst are
+the tree has 8 leaves
+[1, 5, 7, 10, 14, 21, 26, 30]
+the tree has 7 full nodes
+[12, 6, 22, 4, 9, 16, 28]
+the tree has 0 half nodes
+[]
+
+the maximum sum out of each level
+we got the maximum sum at level=4
+we got the maximum sum =114
+
+print all the paths from root to leaf
+path:  12 6 4 1
+path:  12 6 4 5
+path:  12 6 9 7
+path:  12 6 9 10
+path:  12 22 16 14
+path:  12 22 16 21
+path:  12 22 28 26
+path:  12 22 28 30
+
+print the sum of each path and also the maximum sum along all
+path ends with sum: 23
+path ends with sum: 27
+path ends with sum: 34
+path ends with sum: 37
+path ends with sum: 64
+path ends with sum: 71
+path ends with sum: 88
+path ends with sum: 92
+the maximum sum along all paths =92
+
+create a tree = mirror of the given bst
+
+level order of old tree
+the iterative level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 
+the recursive level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 
+
+mirror is created
+the level order for new mirror would look like
+the iterative level order
+12 22 6 28 16 9 4 30 26 21 14 10 7 5 1 
+the recursive level order
+12 22 6 28 16 9 4 30 26 21 14 10 7 5 1 
+
+-----CREATE A BST FROM SINGLE LINKED LIST 2nd approach------
+the list is
+[12, 14, 15, 16, 17, 19, 20, 22, 24, 26, 31, 32, 36, 38, 40]
+
+once bst is created from list, do all operation
+1. level order
+the iterative level order
+22 16 32 14 19 26 38 12 15 17 20 24 31 36 40 
+the recursive level order
+22 16 32 14 19 26 38 12 15 17 20 24 31 36 40 
+the height is
+4
+
+the max element of tree is
+40
+
+the min element of tree is
+12
+
+the diameter of the tree
+7
+
+the maximum width of the tree
+maximum width=8
+
+--------------------------------------------
+
+-----CREATE A BST FROM sorted array approach------
+
+-------CREATE A BST FROM BINARY TREE----------
+
+
+-----level order of bst stored in array- Print the array in sortedOrder-----
+1 3 5 6 7 8 9 10 11 14 16 
+
+------coming back to the original bst-----------
+----LEVEL ORDER of BST------
+the iterative level order
+4 7 2 12 6 3 9 1 4 8 10 
+the recursive level order
+4 7 2 12 6 3 9 1 4 8 10 
+-----all nodes between range[k1,k2]-------
+all nodes between key1=3 & key2=10
+
+printing keys in between
+7 6 4 8 9 10 
+
+-----remove all nodes except range[k1,k2]-------
+remove all nodes except the range of k1= 4 & k2=9
+after removing all not in the range-Level order--
+the iterative level order
+4 7 9 6 8 
+the recursive level order
+4 7 9 6 8 
+
+-------construct a new bst--------
+before adding: the LEVEL order of bst is
+the level order is
+the iterative level order
+10 7 15 3 12 18 6 16 
+the recursive level order
+10 7 15 3 12 18 6 16 the in order is
+the iterative in order
+3 6 7 10 12 15 16 18 
+the recursive  order
+3 6 7 10 12 15 16 18 
+
+ADD ALL GREATER VALUES TO EACH NODE'S KEY
+after adding: the LEVEL order of binary tree is
+the iterative level order
+71 78 49 87 61 18 84 34 
+the recursive level order
+71 78 49 87 61 18 84 34 
+-----------------
+
+-------construct a new bst--------
+before adding :the level order of bst is
+the level order is
+the iterative level order
+11 2 29 1 7 15 40 35 
+the recursive level order
+11 2 29 1 7 15 40 35 the in order is
+the iterative in order
+1 2 7 11 15 29 35 40 
+the recursive  order
+1 2 7 11 15 29 35 40 
+
+ADD ALL GREATER NODES AND STORE IN NODE (NOT THE CURR NODE'S DATA)
+static data contains=0
+after adding: the LEVEL order of binary tree is
+the iterative level order
+119 137 75 139 130 104 0 40 
+the recursive level order
+119 137 75 139 130 104 0 40 
+-----------------
+
+Given Preorder Of A BST=> CONSTRUCT THE BST of the tree
+tree constructed successfully-do operations on tree
+
+the iterative level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 31 
+the recursive level order
+12 6 22 4 9 16 28 1 5 7 10 14 21 26 30 31 
+the iterative in order
+1 4 5 6 7 9 10 12 14 16 21 22 26 28 30 31 
+the recursive  order
+1 4 5 6 7 9 10 12 14 16 21 22 26 28 30 31 
+
+--------------
+---THE new tree-----
+the iterative in order
+3 5 10 13 15 
+the recursive  order
+3 5 10 13 15 
+
+the second largest node of the tree is
+the second largest is13
+---------------------------------
+
+[Finished in 2.5s]
 */
