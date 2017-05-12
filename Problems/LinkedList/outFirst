@@ -1,0 +1,325 @@
+
+after inserting the values:the list is
+9 10 14 15 18 20 
+
+removing from the front
+after removing the first list is:
+10 14 15 18 20 
+
+
+removing from the last
+after removing the last list is:
+10 14 15 18 
+
+
+removing from a particular index
+after removing from index=3 the list is:
+10 14 15 
+
+
+remove the element
+after removing data=15 list is:
+10 14 
+
+
+again inserting:list becomes
+9 10 14 18 20 
+
+
+reversing list: Iterative
+after reversing:head=9 tail=9
+after reverse
+20 18 14 10 9 
+
+
+reversing list: Recursive
+after reverse
+9 10 14 18 20 
+
+
+find the length recursive/iterative
+iterative approach=>length=5
+
+recursive approach=>length=5
+
+
+
+search an element recursice/iterative
+iterative approach: element present=true
+
+recursive approach: element present=true
+
+
+
+get the nth node:3
+9 10 14 18 20 
+the data in the 3th node=14
+
+
+print the middle of the list
+9 10 14 18 20 
+the middle is =14
+
+print the middle of the list
+7 9 10 14 18 20 
+the middle is =10
+
+7 9 10 14 18 20 
+get the Nth node from the end, n=3
+the 3th node from the end=14
+the 3th node from the end=14
+
+
+check if loop present or not
+7 9 10 14 18 20 
+no loop
+
+
+make 18 point to 9
+we detect a loop
+
+
+-----MERGE TWO SORTED LIST-----
+first list:
+1 3 9 11 12 17 
+second list:
+1 4 9 13 22 25 32 
+MERGING....
+
+then new list: after merging:
+1 3 4 9 11 12 13 17 22 25 32 
+1 3 4 9 11 12 13 17 22 25 32 
+1 4 9 11 12 13 17 22 25 32 
+
+
+---REVERSE printing of list ----
+forward:
+1 3 4 9 11 12 13 17 22 25 32 
+backward:
+32 25 22 17 13 12 11 9 4 3 1 
+
+----PALINDROME----
+the given list is:
+1 2 3 4 3 2 1 
+second half
+3 2 1 
+second half reversed
+1 2 3 
+check plaindrome:yes
+
+second half reversed again
+3 2 1 
+1 2 3 4 3 2 1 
+the final list again is:
+1 2 3 4 3 2 1 
+
+
+----WHERE DO THE TWO LISTS starts to MERGE (NODE)--------
+the link list 1:
+3 6 9 15 18 30 
+the link list 2:
+10 12 14 15 18 30 
+
+find the node where they start to intersect
+node with value=15 , starts the merging
+
+
+-----CREATE A THIRD LIST FROM INTERSECTION OF THE TWO SORTED LIST--------
+the list1:
+1 5 8 10 11 17 21 
+the list2:
+0 1 3 7 10 12 16 
+
+after creating a new list with intersection of the two:
+intersetion done
+1 10 
+
+
+----REMOVE DUPLICATES FROM THE SORTED LIST-----
+the list is:
+1 1 2 2 3 4 5 5 5 5 6 7 
+after removing duplicate:list is:
+1 2 3 4 5 6 7 
+
+
+----REMOVE DUPLICATES FROM THE UNSORTED LIST-----
+the list is:
+7 1 2 4 6 5 3 5 5 1 3 7 
+after removing duplicate:list is:
+7 1 2 4 6 5 3 7 
+
+
+-----PAIR WISE SWAP NODES----
+the list is:
+2 3 5 6 8 9 11 12 
+pairWise swapping....
+3 2 6 5 9 8 12 11 
+
+
+--------DELETE ALTERNATE NODES OF A LINKED LIST-----
+the list:
+4 8 3 6 2 7 12 
+after deleting alternate nodes: list:
+4 3 2 12 
+
+
+-------ALTERNATE RETAIN M NODES AND DELETE N NODES-----:m=3 n=2
+list is:
+5 2 1 3 6 7 8 9 2 1 2 3 
+the updated tail of the deleted list=3
+after retain m nodes and delete n nodes alternatively:
+5 2 1 7 8 9 2 3 
+------CREATE TWO LISTS FROM ALTERNATE NODES ---------
+the orig list:
+2 3 4 5 6 7 8 9 
+after splitting the list alternatively:
+the original list:
+2 3 4 5 6 7 8 9 
+the sub-first list:
+2 4 6 8 
+the sub-second list:
+3 5 7 9 
+
+
+
+-------MERGE TWO LISTS INTO FIRST ONE AT EVERY ALTERNATE POSITION-----
+second list cant be less than first, but list2>=list1
+list1:
+1 3 5 7 
+list2:
+2 4 6 8 10 12 
+starting with list1, alternate lists nodes into list1 and list2=remaining
+first list head=1 tail=8
+first list head=10 tail=12
+after merging into first:
+first list:
+1 2 3 4 5 6 7 8 
+second list:
+10 12 
+
+
+-----MERGE SORT OF LINKED LIST----
+before sorting the list is:
+5 2 8 3 12 1 8 10 4 6 
+after sorting the list is:
+1 2 3 4 5 6 8 8 10 12 
+
+
+------REVERSE LINKED LIST IN CHUNKS OF K----
+the list:
+1 2 3 4 5 6 7 8 10 
+after reversing in chunks of:3
+3 2 1 6 5 4 10 8 7 
+
+after adding more elemts to the above list:
+3 2 1 6 5 4 10 8 7 100 101 102 103 
+after reversing in chunks of:3
+1 2 3 4 5 6 7 8 10 102 101 100 103 
+
+-------REVERSE ALTERNATE GROUPS OF SIZE K-----
+the list:
+1 2 3 4 5 6 7 8 10 100 101 102 103 104 105 106 107 108 109 110 
+after reversing in chunks of:3
+last slotfalse
+3 2 1 4 5 6 10 8 7 100 101 102 105 104 103 106 107 108 110 109 
+
+
+-----DELETE NODES WHO HAS GREATER RHS------
+the list:
+5 1 2 3 6 8 2 3 
+after operation list is:
+8 3 
+
+
+-----Seggregate EVEN AND ODD (EVEN followed by ODD)--------
+the list:
+1 3 2 4 5 6 7 9 12 13 15 20 21 
+after seggregating even followed by odd:
+2 4 6 12 20 21 1 3 5 7 9 13 15 
+
+
+-----DETECT AND REMOVE LOOP-----
+before loop setting: li
+1 3 5 4 7 10 12 
+head:1
+tail:12
+tail pointing to node with data:5
+we have a loop
+fast points to:5
+slow points to:5
+prev points to:12
+loop removed: list
+1 3 5 4 7 10 12 
+
+
+------SUM OF TWO LISTS WITH EXTRA LIST-----
+we assume the numbers are known and we store them in reverse order
+the list1:
+9 9 
+the list2:
+8 8 9 9 9 
+sum them on a third list:
+tail=1
+the sum list is:
+7 8 0 0 0 1 
+we need to reverse the list to get the actual sum
+1 0 0 0 8 7 
+
+
+-------SUM OF THE LISTS WITHOUT EXTRA SPACE------
+we assume the numbers are known and we store them in reverse order
+list1:
+9 9 
+list2:
+8 8 9 9 9 
+
+the sum of elements in right order is:
+100087
+
+
+-----FIND triplet in 3-LinkedList with sum =14
+l1 as it is 
+14 3 22 2 1 
+l2 in ascending order
+5 6 7 11 16 
+l3 in desc order
+20 6 5 2 
+found sum of: 14
+triplets:3 5 6
+found sum of: 14
+triplets:3 6 5
+found sum of: 14
+triplets:2 6 6
+found sum of: 14
+triplets:2 7 5
+found sum of: 14
+triplets:1 7 6
+found sum of: 14
+triplets:1 11 2
+return from triplets
+
+after returning list1 ,list2,list3
+14 3 22 2 1 
+5 6 7 11 16 
+20 6 5 2 
+
+
+-------ROTATE linked list to k nodes to left------4
+list is:
+1 2 3 4 5 6 
+new head=5 new tail=4
+after rotating left by:4 the list is:
+5 6 1 2 3 4 
+
+
+-------MAX SUM LINKED LIST- PATH CHANGE ALLOWED ONLY AT COMMON NODES----
+list1:
+1 5 7 12 13 18 
+list2:
+2 5 8 9 12 16 
+
+after the operation: the max sum list:
+
+
+
+[Finished in 2.2s]
