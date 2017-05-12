@@ -10,7 +10,7 @@ class Node
  	}
 }
 
-class LinkList
+class **LinkList**
 {
 	
 	private Node head;
