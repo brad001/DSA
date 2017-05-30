@@ -1275,6 +1275,128 @@ public class StackGeeks
 		
 	}
 }
+Note: /home/lokender/workspace1/GeeksForGeeks/StackGeeks.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 2 3 4 5 6 7 8 9 : ; 
+pop one
+popped= ;
+now stack:
+1 2 3 4 5 6 7 8 9 : 
+size of stack is:10
+1 2 3 4 5 6 7 8 9 : 
+----------------------------
+WORKING FOR INFIX TO POSTFIX
+the infix is: a+b*(c^d^p-e)^(f+g*h)-i+(j^k^l)
+scanned and converted
+abcdp^^e-fgh*+^*+i-jkl^^+
+the postfix is :abcdp^^e-fgh*+^*+i-jkl^^+
+---------------------------
+POSTFIX EVALUATION
+the infix is: 1+3*(2^3-4)^(0+1*3)-5
+scanned and converted
+1323^4-013*+^*+5-
+evaluation of postfix
+exp evaluated
+188
+final value of postfix=188
+------------------------------------
+WORKING FOR INFIX TO PREFIX
+1+3*(2^3-4)^(0+1*3)-5 
+5-)3*1+0(^)4-3^2(*3+1
+scanned and converted
+531+0(432((*3+1+-
+reversing the final prefix again
+-+1+3*((234(0+135
+------------------------------------
+CHECK PARETHESIS
+expr:[]{(([]))}[]({(){}[()]})(
+reached non-empty
+invalid
+------------------------------
+FOR EACH ELEMENT- FIND NEXT GREATER ELEMENT
+the array:
+5 1 10 4 9 5 34 6 9 12 pair:1 & 10
+pair:5 & 10
+pair:4 & 9
+pair:5 & 34
+pair:9 & 34
+pair:10 & 34
+pair:6 & 9
+pair:9 & 12
+---------------------
+REVERSE USING STACK
+stack top to bottom is:
+[3, 5, 2, 1, 7, 2]
+reversing:
+stack after is :
+[2, 7, 1, 2, 5, 3]
+---------------------
+SORT THE STACK USING STACK
+stack top to bottom is :
+[6, 3, 9, 1, 5, 4]
+after sorting top to bottom:
+[9, 6, 5, 4, 3, 1]
+---------------------------
+STOCK SPAN PROBLEM:
+top to bottom:stock prices:
+10 4 5 90 120 80 
+the span of each element is :
+1 1 2 4 5 1 
+-----------------------------------
+FIND MINIMUM FROM A STACK IN O(1)
+the stack from bottom to top:
+15 14 17 19 21 10 
+the min is:10
+pop one:
+the stack is :
+15 14 17 19 21 
+the min is:14
+pop one:
+the stack is :
+15 14 17 19 
+the min is:14
+pop one:
+the stack is :
+15 14 17 
+the min is:14
+pop one:
+the stack is :
+15 14 
+the min is:14
+pop one:
+the stack is :
+15 
+the min is:15
+----------------------------------
+VALID PREORDER
+true
+false
+------------------------------------
+GRAPH DFS USING STACK
+0 
+2 
+1 
+3 
+5 
+7 
+6 
+4 
+-------------------------------------
+COUNT MINIMUM NUMBER OF BRACKETS REVERSAL TO MAKE VALID PARENTHESES:(string only of '{' & '}' :
+close:3
+open:5
+2.0
+5
+----------------------------------
+FIND THE MAXIMUM CONTINOUS LENGTH VAILD SUBSTRING PARENTHESES
+the string is:
+( ) ( ( ) ( ) ( ) ) ) ) ( ) ) ) 
+found currMax between -1 & 1 of length=2
+found currMax between 2 & 6 of length=4
+found currMax between 2 & 8 of length=6
+found currMax between -1 & 9 of length=10
+the valid max length: 10
+[Finished in 2.3s]
 
 
 
