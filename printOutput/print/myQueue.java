@@ -1274,3 +1274,128 @@ public class QueueImplementLinkedList
 
 	}
 }
+
+Note: /home/lokender/workspace1/GeeksForGeeks/QueueImplementLinkedList.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+****************************************
+the queue is :
+1 2 3 4 
+empty:?false
+size?4
+first element of queue is :1
+the queue is :
+2 3 4 
+the queue is :
+2 3 4 9 
+the queue is :
+3 4 9 
+3
+the queue is :
+4 9 
+false
+2
+*****************************************
+IMPLEMENTING BFS USING QUEUE
+graph display:
+0:[2, 1]
+1:[3]
+2:[]
+3:[6, 4, 5]
+4:[7]
+5:[7]
+6:[7]
+7:[]
+bfs traversal
+visit:0
+visit:2
+visit:1
+visit:3
+visit:6
+visit:4
+visit:5
+visit:7
+****************************************
+FIND THE MAXIMUM FROM EACH SUBAARAY OF SIZE K
+the array is :
+12 1 78 90 57 89 56 
+the maximum from each subarray of size=3 are:
+78 90 90 90 89 
+
+****************************************
+PRINT ALL BINARY STRINGS FROM 1 TO N
+given n:11
+binary : 1
+binary : 10
+binary : 11
+binary : 100
+binary : 101
+binary : 110
+binary : 111
+binary : 1000
+binary : 1001
+binary : 1010
+binary : 1011
+
+****************************************
+IMPLEMENT K QUEUES IN an ARRAY
+10 elemets in 4 queus
+22 24 54 
+22
+11 12 13 
+11
+renoved 11
+12 13 
+renoved 12
+13 
+renoved 13
+queu is empty
+*******************************************
+IMPLEMENT K stack IN an ARRAY
+10 elemets in 4 stack
+frome top to bottom: the elements are:
+54 24 22 
+top:54
+pop:54
+frome top to bottom: the elements are:
+24 22 
+frome top to bottom: the elements are:
+13 12 11 
+top:13
+pop:13
+frome top to bottom: the elements are:
+12 11 
+*******************************************
+CHECK THE MINIMUM TIME UNIT REQUIRED TO ROT ALL EGGS
+2 0 0 2 
+0 0 0 2 
+1 1 1 2 
+the matrx after updation is: 
+2 0 0 2 
+0 0 0 2 
+2 2 2 2 
+all rotten: 
+the minimum time is:3
+*******************************************
+IMPLEMENTING ARRAY-DEQUE
+addfront front=-1 rear=-1
+addfront front=0 rear=0
+addfront front=4 rear=0
+addfront front=3 rear=0
+addfront front=2 rear=0
+queue is full :cant add
+rear....front
+5 4 3 2 1 
+getfront=5
+getRear=1
+remove front
+getfront=4
+getRear=1
+rear....front
+4 3 2 1 getfront=4
+getRear=2
+front...rear
+4 3 2 getfront=4
+getRear=24
+rear....front
+4 3 2 12 24 *******************************************
+[Finished in 7.5s]
